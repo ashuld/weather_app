@@ -27,18 +27,20 @@ class Weather {
       required this.pressure,
       required this.precipice,
       required this.lastupdate});
-  Weather.fromJson(Map<String, dynamic> json) {
-    city = json['location']['name'];
-    icon = json['current']['condition']['icon'];
-    condition = json['current']['condition']['text'];
-    temp = json['current']['temp_c'];
-    wind = json['current']['wind_kph'];
-    humidity = json['current']['humidity'];
-    winddir = json['current']['wind_dir'];
-    pressure = json['current']['pressure_mb'];
-    precipice = json['current']['precip_mm'];
-    lastupdate = json['current']['last_updated'];
-    gust = json['current']['gust_kph'];
-    uv = json['current']['uv'];
+
+  factory Weather.fromJson(Map<String, dynamic> json) {
+    return Weather(
+        city: json['location']['name'],
+        icon: json['current']['condition']['icon'],
+        condition: json['current']['condition']['text'],
+        temp: json['current']['temp_c'],
+        wind: json['current']['wind_kph'],
+        humidity: json['current']['humidity'],
+        winddir: json['current']['wind_dir'],
+        gust: json['current']['gust_kph'],
+        uv: json['current']['uv'],
+        pressure: json['current']['pressure_mb'],
+        precipice: json['current']['precip_mm'],
+        lastupdate: json['current']['last_updated']);
   }
 }
